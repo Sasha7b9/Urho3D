@@ -677,7 +677,7 @@ void UIElement::SetHorizontalAlignment(HorizontalAlignment align)
 {
     if (align != HA_LEFT && parent_ && parent_->GetLayoutMode() == LM_HORIZONTAL)
     {
-        URHO3D_LOGWARNING("Forcing left alignment because parent element has horizontal layout");
+//        URHO3D_LOGWARNING("Forcing left alignment because parent element has horizontal layout");
         align = HA_LEFT;
     }
 
@@ -710,7 +710,7 @@ void UIElement::SetVerticalAlignment(VerticalAlignment align)
 {
     if (align != VA_TOP && parent_ && parent_->GetLayoutMode() == LM_VERTICAL)
     {
-        URHO3D_LOGWARNING("Forcing top alignment because parent element has vertical layout");
+//        URHO3D_LOGWARNING("Forcing top alignment because parent element has vertical layout");
         align = VA_TOP;
     }
 

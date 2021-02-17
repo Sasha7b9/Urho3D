@@ -408,7 +408,9 @@ bool Serializable::LoadXML(const XMLElement& source)
         }
 
         if (!attempts)
-            URHO3D_LOGWARNING("Unknown attribute " + name + " in XML data");
+        {
+            // URHO3D_LOGWARNING("Unknown attribute " + name + " in XML data");
+        }
 
         attrElem = attrElem.GetNext("attribute");
     }
