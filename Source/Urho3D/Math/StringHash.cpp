@@ -52,6 +52,11 @@ static StringHashRegister& GetGlobalStringHashRegister()
 
 const StringHash StringHash::ZERO;
 
+
+StringHash::StringHash() noexcept : value_(0)
+{
+}
+
 StringHash::StringHash(const char* str) noexcept :
     value_(Calculate(str))
 {
@@ -66,6 +71,18 @@ StringHash::StringHash(const String& str) noexcept :
 #ifdef URHO3D_HASH_DEBUG
     Urho3D::GetGlobalStringHashRegister().RegisterString(*this, str.CString());
 #endif
+}
+
+
+bool StringHash::operator==(const StringHash& rhs) const
+{
+    return value_ == rhs.value_;
+}
+
+
+unsigned StringHash::ToHash() const
+{
+    return value_;
 }
 
 unsigned StringHash::Calculate(const char* str, unsigned hash)

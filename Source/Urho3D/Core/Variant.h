@@ -326,7 +326,7 @@ class URHO3D_API Variant
 {
 public:
     /// Construct empty.
-    Variant() = default;
+    Variant();
 
     /// Construct from integer.
     Variant(int value)                  // NOLINT(google-explicit-constructor)
@@ -546,16 +546,10 @@ public:
     }
 
     /// Copy-construct from another variant.
-    Variant(const Variant& value)
-    {
-        *this = value;
-    }
+    Variant(const Variant& value);
 
     /// Destruct.
-    ~Variant()
-    {
-        SetType(VAR_NONE);
-    }
+    ~Variant();
 
     /// Reset to empty.
     void Clear()
@@ -1085,17 +1079,7 @@ public:
     template <class T> void SetCustom(const T& value) { SetCustomVariantValue(MakeCustomValue<T>(value)); }
 
     /// Return int or zero on type mismatch. Floats and doubles are converted.
-    int GetInt() const
-    {
-        if (type_ == VAR_INT)
-            return value_.int_;
-        else if (type_ == VAR_FLOAT)
-            return static_cast<int>(value_.float_);
-        else if (type_ == VAR_DOUBLE)
-            return static_cast<int>(value_.double_);
-        else
-            return 0;
-    }
+    inline int GetInt() const;
 
     /// Return 64 bit int or zero on type mismatch. Floats and doubles are converted.
     long long GetInt64() const

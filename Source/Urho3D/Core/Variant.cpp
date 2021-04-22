@@ -74,6 +74,22 @@ static const char* typeNames[] =
 
 static_assert(sizeof(typeNames) / sizeof(const char*) == (size_t)MAX_VAR_TYPES + 1, "Variant type name array is out-of-date");
 
+
+Variant::Variant()
+{
+
+}
+
+Variant::Variant(const Variant &value)
+{
+    *this = value;
+}
+
+Variant::~Variant()
+{
+    SetType(VAR_NONE);
+}
+
 Variant& Variant::operator =(const Variant& rhs)
 {
     // Handle custom types separately
@@ -425,6 +441,18 @@ void Variant::SetCustomVariantValue(const CustomVariantValue& value)
         delete value_.customValueHeap_;
         value_.customValueHeap_ = value.Clone();
     }
+}
+
+int Variant::GetInt() const
+{
+    if (type_ == VAR_INT)
+        return value_.int_;
+    else if (type_ == VAR_FLOAT)
+        return static_cast<int>(value_.float_);
+    else if (type_ == VAR_DOUBLE)
+        return static_cast<int>(value_.double_);
+    else
+        return 0;
 }
 
 VectorBuffer Variant::GetVectorBuffer() const

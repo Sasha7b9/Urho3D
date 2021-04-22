@@ -52,9 +52,9 @@ public:
     template<typename T> bool IsTypeOf() const { return IsTypeOf(T::GetTypeInfoStatic()); }
 
     /// Return type.
-    StringHash GetType() const { return type_; }
+    inline StringHash GetType() const;
     /// Return type name.
-    const String& GetTypeName() const { return typeName_;}
+    inline const String& GetTypeName() const;
     /// Return base type info.
     const TypeInfo* GetBaseTypeInfo() const { return baseTypeInfo_; }
 
@@ -102,7 +102,7 @@ public:
     virtual void OnEvent(Object* sender, StringHash eventType, VariantMap& eventData);
 
     /// Return type info static.
-    static const TypeInfo* GetTypeInfoStatic() { return nullptr; }
+    inline static const TypeInfo* GetTypeInfoStatic();
     /// Check current instance is type of specified type.
     bool IsInstanceOf(StringHash type) const;
     /// Check current instance is type of specified type.
@@ -256,15 +256,10 @@ class URHO3D_API EventHandler : public LinkedListNode
 {
 public:
     /// Construct with specified receiver and userdata.
-    explicit EventHandler(Object* receiver, void* userData = nullptr) :
-        receiver_(receiver),
-        sender_(nullptr),
-        userData_(userData)
-    {
-    }
+    explicit EventHandler(Object* receiver, void* userData = nullptr);
 
     /// Destruct.
-    virtual ~EventHandler() = default;
+    virtual ~EventHandler();
 
     /// Set sender and event type.
     void SetSenderAndEventType(Object* sender, StringHash eventType)

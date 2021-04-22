@@ -34,6 +34,29 @@
 namespace Urho3D
 {
 
+StringHash TypeInfo::GetType() const
+{
+    return type_;
+}
+
+const String& TypeInfo::GetTypeName() const
+{
+    return typeName_;
+}
+
+EventHandler::EventHandler(Object* receiver, void* userData) : receiver_(receiver)
+    , sender_(nullptr)
+    , userData_(userData)
+{
+
+}
+
+EventHandler::~EventHandler()
+{
+
+}
+
+
 TypeInfo::TypeInfo(const char* typeName, const TypeInfo* baseTypeInfo) :
     type_(typeName),
     typeName_(typeName),
@@ -128,6 +151,11 @@ void Object::OnEvent(Object* sender, StringHash eventType, VariantMap& eventData
         nonSpecific->Invoke(eventData);
         context->SetEventHandler(nullptr);
     }
+}
+
+const TypeInfo* Object::GetTypeInfoStatic()
+{
+    return nullptr;
 }
 
 bool Object::IsInstanceOf(StringHash type) const

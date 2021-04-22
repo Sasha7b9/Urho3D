@@ -34,10 +34,7 @@ class URHO3D_API StringHash
 {
 public:
     /// Construct with zero value.
-    StringHash() noexcept :
-        value_(0)
-    {
-    }
+    StringHash() noexcept;
 
     /// Copy-construct from another hash.
     StringHash(const StringHash& rhs) noexcept = default;
@@ -72,7 +69,7 @@ public:
     }
 
     /// Test for equality with another hash.
-    bool operator ==(const StringHash& rhs) const { return value_ == rhs.value_; }
+    inline bool operator==(const StringHash& rhs) const;
 
     /// Test for inequality with another hash.
     bool operator !=(const StringHash& rhs) const { return value_ != rhs.value_; }
@@ -97,7 +94,7 @@ public:
     String Reverse() const;
 
     /// Return hash value for HashSet & HashMap.
-    unsigned ToHash() const { return value_; }
+    inline unsigned ToHash() const;
 
     /// Calculate hash value from a C string.
     static unsigned Calculate(const char* str, unsigned hash = 0);
