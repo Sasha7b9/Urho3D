@@ -102,7 +102,7 @@ public:
     virtual void OnEvent(Object* sender, StringHash eventType, VariantMap& eventData);
 
     /// Return type info static.
-    inline static const TypeInfo* GetTypeInfoStatic();
+    static const TypeInfo* GetTypeInfoStatic();
     /// Check current instance is type of specified type.
     bool IsInstanceOf(StringHash type) const;
     /// Check current instance is type of specified type.
