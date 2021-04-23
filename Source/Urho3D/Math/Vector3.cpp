@@ -63,4 +63,12 @@ String IntVector3::ToString() const
     return String(tempBuffer);
 }
 
+Vector3::Vector3(float x, float y, float z) noexcept :
+    x_(x),
+    y_(y),
+    z_(z)
+{
+
+}
+
 }

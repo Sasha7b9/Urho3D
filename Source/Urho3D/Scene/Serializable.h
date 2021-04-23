@@ -73,10 +73,10 @@ public:
     virtual bool SaveJSON(JSONValue& dest) const;
 
     /// Apply attribute changes that can not be applied immediately. Called after scene load or a network update.
-    virtual void ApplyAttributes() { }
+    virtual void ApplyAttributes();
 
     /// Return whether should save default-valued attributes into XML. Default false.
-    virtual bool SaveDefaultAttributes() const { return false; }
+    virtual bool SaveDefaultAttributes() const;
 
     /// Mark for attribute check on the next network update.
     virtual void MarkNetworkUpdate() { }

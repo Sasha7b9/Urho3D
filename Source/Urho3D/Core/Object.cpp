@@ -575,4 +575,16 @@ StringHashRegister& GetEventNameRegister()
     return eventNameRegister;
 }
 
+ObjectFactory::ObjectFactory(Context* context) :
+    context_(context)
+{
+    assert(context_);
+}
+
+
+ObjectFactory::~ObjectFactory()
+{
+
+}
+
 }

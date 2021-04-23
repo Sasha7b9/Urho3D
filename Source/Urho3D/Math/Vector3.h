@@ -220,12 +220,7 @@ public:
     }
 
     /// Construct from coordinates.
-    Vector3(float x, float y, float z) noexcept :
-        x_(x),
-        y_(y),
-        z_(z)
-    {
-    }
+    Vector3(float x, float y, float z) noexcept;
 
     /// Construct from two-dimensional coordinates (for Urho2D).
     Vector3(float x, float y) noexcept :

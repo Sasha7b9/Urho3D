@@ -208,11 +208,9 @@ class URHO3D_API ObjectFactory : public RefCounted
 {
 public:
     /// Construct.
-    explicit ObjectFactory(Context* context) :
-        context_(context)
-    {
-        assert(context_);
-    }
+    explicit ObjectFactory(Context* context);
+
+    virtual ~ObjectFactory();
 
     /// Create an object. Implemented in templated subclasses.
     virtual SharedPtr<Object> CreateObject() = 0;

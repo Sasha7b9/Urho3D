@@ -48,6 +48,11 @@ void LogicComponent::OnSetEnabled()
     UpdateEventSubscription();
 }
 
+void LogicComponent::DelayedStart()
+{
+
+}
+
 void LogicComponent::Update(float timeStep)
 {
 }

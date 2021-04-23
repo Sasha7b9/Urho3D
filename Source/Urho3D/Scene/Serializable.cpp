@@ -587,6 +587,18 @@ bool Serializable::SaveJSON(JSONValue& dest) const
     return true;
 }
 
+
+void Serializable::ApplyAttributes()
+{
+
+}
+
+
+bool Serializable::SaveDefaultAttributes() const
+{
+    return false;
+}
+
 bool Serializable::SetAttribute(unsigned index, const Variant& value)
 {
     const Vector<AttributeInfo>* attributes = GetAttributes();
