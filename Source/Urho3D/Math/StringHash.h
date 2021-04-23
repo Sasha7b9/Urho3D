@@ -94,7 +94,7 @@ public:
     String Reverse() const;
 
     /// Return hash value for HashSet & HashMap.
-    inline unsigned ToHash() const;
+    unsigned ToHash() const;
 
     /// Calculate hash value from a C string.
     static unsigned Calculate(const char* str, unsigned hash = 0);
