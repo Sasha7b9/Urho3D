@@ -1079,7 +1079,7 @@ public:
     template <class T> void SetCustom(const T& value) { SetCustomVariantValue(MakeCustomValue<T>(value)); }
 
     /// Return int or zero on type mismatch. Floats and doubles are converted.
-    inline int GetInt() const;
+    int GetInt() const;
 
     /// Return 64 bit int or zero on type mismatch. Floats and doubles are converted.
     long long GetInt64() const
