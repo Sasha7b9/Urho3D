@@ -124,10 +124,10 @@ public:
     }
 
     /// Return number of elements.
-    inline unsigned Size() const;
+    unsigned Size() const;
 
     /// Return number of buckets.
-    inline unsigned NumBuckets() const;
+    unsigned NumBuckets() const;
 
     /// Return whether has no elements.
     bool Empty() const { return Size() == 0; }
@@ -140,10 +140,10 @@ protected:
     void ResetPtrs();
 
     /// Set new size.
-    inline void SetSize(unsigned size);
+    void SetSize(unsigned size);
 
     /// Return bucket head pointers.
-    inline HashNodeBase** Ptrs() const;
+    HashNodeBase** Ptrs() const;
 
     /// List head node pointer.
     HashNodeBase* head_;
