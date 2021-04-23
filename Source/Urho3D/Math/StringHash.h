@@ -69,7 +69,7 @@ public:
     }
 
     /// Test for equality with another hash.
-    inline bool operator==(const StringHash& rhs) const;
+    bool operator==(const StringHash& rhs) const;
 
     /// Test for inequality with another hash.
     bool operator !=(const StringHash& rhs) const { return value_ != rhs.value_; }

@@ -52,9 +52,9 @@ public:
     template<typename T> bool IsTypeOf() const { return IsTypeOf(T::GetTypeInfoStatic()); }
 
     /// Return type.
-    inline StringHash GetType() const;
+    StringHash GetType() const;
     /// Return type name.
-    inline const String& GetTypeName() const;
+    const String& GetTypeName() const;
     /// Return base type info.
     const TypeInfo* GetBaseTypeInfo() const { return baseTypeInfo_; }
 
